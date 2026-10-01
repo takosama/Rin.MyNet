@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 
 namespace Rin.MyNet
 {
@@ -37,9 +39,9 @@ namespace Rin.MyNet
         public override string ToString()
         {
             if (IsValue)
-                return this.Key + "=" + System.Web.HttpUtility.UrlEncode(this.Val);
+                return System.Web.HttpUtility.UrlEncode(this.Key) + "=" + System.Web.HttpUtility.UrlEncode(this.Val);
             if (IsArray)
-                return this.Key + "=" + System.Web.HttpUtility.UrlEncode(String.Join(",", this.Values));
+                return System.Web.HttpUtility.UrlEncode(this.Key) + "=" + System.Web.HttpUtility.UrlEncode(String.Join(",", this.Values));
             return null;
         }
 
